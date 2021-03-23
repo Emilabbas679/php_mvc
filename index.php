@@ -1,4 +1,8 @@
 <?php
+ob_start();
+session_start();
+
+
 
 define("APP_NAME", 'Sinyorz');
 define("APP_TITLE", '| Sinyorz');

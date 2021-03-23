@@ -3,6 +3,12 @@
 class UsersController extends Controller {
 
 
+    public function __construct() {
+        if (!isset( $_SESSION['valid']) or ( isset( $_SESSION['valid']) and $_SESSION['valid'] == false )){
+            return header('Location: '. ADMIN_URL.'auth/login');
+        }
+    }
+
     public function index()
     {
         $model = $this->model('Users');
@@ -26,10 +32,23 @@ class UsersController extends Controller {
               'password' => $_POST['password']
             ];
             $model = $this->model('Users');
-            var_dump($model->create($data));
+            $model->create($data);
             return header('Location: '. ADMIN_URL.'users');
         }
-        echo 'za';
+    }
+
+    public function edit($id)
+    {
+        $model = $this->model('Users');
+        $model->getUser(['id'=>$id]);
+        $user = $model->data['item'];
+        if(count($user)==0)
+            return header('Location: '. ADMIN_URL.'users');
+        else{
+            $user = $user[0];
+            var_dump($user);
+        }
+        echo $id;
     }
 
 }

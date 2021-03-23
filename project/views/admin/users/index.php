@@ -40,8 +40,8 @@
                                 <td><?=$item['email']?></td>
                                 <td>
 
-                                    <form  action="{{ route('article.destroy', $article->id) }}" method="POST" style="display: inline-block">
-                                        <a class="btn btn-primary btn-circle btn-sm" href="{{ route('article.edit', $article->id) }}">
+                                    <form  action="<?=ADMIN_URL?>users/delete/<?=$item['id']?>" method="POST" style="display: inline-block">
+                                        <a class="btn btn-primary btn-circle btn-sm" href="<?=ADMIN_URL?>users/edit/<?=$item['id']?>">
                                             <i class="far fa-edit"></i>
                                         </a>
 

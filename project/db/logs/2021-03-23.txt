@@ -1,0 +1,7 @@
+Time : 16:27:28
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@mysite.com' at line 1
+Raw SQL : SELECT * FROM  `users` WHERE  email=admin@mysite.com
+
+Time : 16:27:11
+SQLSTATE[HY000]: General error: 1364 Field 'password' doesn't have a default value
+Raw SQL : INSERT INTO `users` ( `email` ) VALUES ( 'admin@mysite.com' );

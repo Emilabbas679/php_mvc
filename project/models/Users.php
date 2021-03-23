@@ -30,7 +30,19 @@ class Users{
             $index++;
         }
         $data = $this->db->query("INSERT INTO `users` (".$keys.") VALUES (".$values.");");
-        $this->data['check'] = $data;
+        $this->data['create'] = $data;
+    }
+
+    public function getUser($item){
+        $where = "";
+        $index = 1;
+        foreach($item as $key=>$value){
+            $where = $where." $key=\"$value\" ";
+            if ($index != count($item))
+                $where = ' and '.$where;
+        }
+        $data = $this->db->query("SELECT * FROM  `users` WHERE $where");
+        $this->data['item'] = $data;
     }
 
 }
